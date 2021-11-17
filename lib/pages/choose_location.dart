@@ -11,19 +11,10 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  void getData() async {
-    Response response =
-        await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
-
-    Map data = jsonDecode(response.body);
-
-    print(data['title']);
-  }
-
   @override
   void initState() {
     super.initState();
-    getData();
+    getTime();
   }
 
   var counter = 0;
