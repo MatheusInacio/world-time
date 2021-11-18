@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:world_clock/services/worldtime.dart';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({Key? key}) : super(key: key);
@@ -11,10 +9,17 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+  void setupWorldTime() async {
+    WorldTime instance = WorldTime(
+        location: 'Jacarezinho', flag: 'Brazil.png', url: 'America/Sao_Paulo');
+    await instance.getTime();
+    //print(instance.time);
+  }
+
   @override
   void initState() {
     super.initState();
-    getTime();
+    setupWorldTime();
   }
 
   var counter = 0;
